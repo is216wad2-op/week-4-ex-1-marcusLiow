@@ -19,8 +19,29 @@
         <script>
         
             function validateForm() {
-                var x = document.getElementsByName("id");
-                console.log(x);
+                var form = document.forms["form"];
+
+                var id = form["id"].value;
+                var age = form["age"].value;
+                var email = form["email"].value;
+                var pwd = form["password"].value;
+
+                var msg = "";
+
+                if (id.length > 10){
+                    msg += "ID must have a max of 10 characters\n"
+                }
+                if(email.includes("@") == false){
+                    msg += "Email must have @"
+                }
+                if(age < 10 || age > 40){
+                    msg += "Age must be between 10 and 40\n"
+                }
+                if(pwd === ""){
+                    msg += "Password cannot be empty\n"
+                }
+
+                alert(msg)
             }
      
          </script>
